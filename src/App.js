@@ -59,6 +59,14 @@ export default function App() {
       return count;
     });
   }
+  function handleResetButton() {
+    setStepNum(1);
+    setCount(() => {
+      setExtraDays(1);
+      setDate(new Date());
+      return 1;
+    });
+  }
   return (
     <div className="App">
       <div className="container">
@@ -93,6 +101,11 @@ export default function App() {
           </>
         )}
       </div>
+      {count != 1 || stepNum != 1 ? (
+        <button onClick={handleResetButton}>Reset</button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
